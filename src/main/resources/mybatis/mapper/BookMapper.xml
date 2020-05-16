@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.booknju.booknjuservice.mapper.BookMapper">
+    <insert id="add" parameterType="book">
+        insert into book (id,isbn,bname,author,publisher,degree,indate,num) values(#{id},#{isbn},#{bname},#{author},#{publisher},#{degree},#{inDate},#{num})
+    </insert>
+    <select id="getAllBooks" resultType="book">
+        select * from book
+    </select>
+    <select id="getBookById" resultType="book">
+        select * from book where id=#{id}
+    </select>
+    <update id="update" parameterType="book">
+        update book set isbn=#{isbn},bname=#{bname},author=#{author},publisher=#{publisher},degree=#{degree},indate=#{inDate},num=#{num} where id=#{id};
+    </update>
+    <delete id="delete" parameterType="Integer">
+        delete from book where id=#{id}
+    </delete>
+</mapper>

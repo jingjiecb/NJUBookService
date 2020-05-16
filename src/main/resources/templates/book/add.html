@@ -53,39 +53,40 @@
 				<div th:replace="~{commons/common::sideBar(active='list.html')}"></div>
 
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-					<h2>员工表</h2>
 
-					<a class="btn btn-sm btn-success" th:href="@{/addEmp}">添加员工</a>
+					<form th:action="@{/addBook}" method="post">
+						<div class="form-group">
+							<label>ISBN</label>
+							<input type="text" name="isbn" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>书名</label>
+							<input type="text" name="bname" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>作者</label>
+							<input type="text" name="author" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>出版社</label>
+							<input type="text" name="publisher" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>新旧</label>
+							<input type="text" name="degree" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>入库日期</label>
+							<input type="text" name="inDate" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>数量</label>
+							<input type="text" name="num" class="form-control">
+						</div>
 
-					<div class="table-responsive">
-						<table class="table table-striped table-sm">
-							<thead>
-								<tr>
-									<th>id</th>
-									<th>lastName</th>
-									<th>email</th>
-									<th>gender</th>
-									<th>department</th>
-									<th>birthday</th>
-									<th>操作</th>
-								</tr>
-							</thead>
-							<tbody>
-							<tr th:each="emp:${emps}">
-								<td th:text="${emp.getId()}"></td>
-								<td th:text="${emp.getLastName()}"></td>
-								<td th:text="${emp.getEmail()}"></td>
-								<td th:text="${emp.getGender()==1?'男':'女'}"></td>
-								<td th:text="${dpt.getDepartmentById(emp.getDepartmentId()).getDepartmentName()}"></td>
-								<td th:text="${#dates.format(emp.getBirthday(),'yyyy-MM-dd')}"></td>
-								<td>
-									<a class="btn btn-sm btn-primary" th:href="@{/update(id=${emp.getId()})}">编辑</a>
-									<a class="btn btn-sm btn-danger" th:href="@{/delete(id=${emp.getId()})}">删除</a>
-								</td>
-							</tr>
-							</tbody>
-						</table>
-					</div>
+						<button type="submit" class="btn btn-primary">添加</button>
+					</form>
+
 				</main>
 			</div>
 		</div>
