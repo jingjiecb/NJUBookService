@@ -1,0 +1,15 @@
+# 时间日期格式化
+spring:
+  mvc:
+    date-format: yyyy-MM-dd
+
+  datasource:
+    username: njubook
+    password: NjuBookServiceMysql3306
+    url: jdbc:mysql://62.234.27.69:3306/njubook?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+mybatis:
+  type-aliases-package: cn.booknju.booknjuservice.pojo
+  mapper-locations: classpath:mybatis/mapper/*.xml
